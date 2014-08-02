@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webService/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webService/">
+
+<xs:element name="sendFacturaLote" type="tns:sendFacturaLote"/>
+
+<xs:element name="sendFacturaLoteResponse" type="tns:sendFacturaLoteResponse"/>
+
+<xs:complexType name="sendFacturaLote">
+<xs:sequence>
+<xs:element name="facturas" type="tns:facturas" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="facturas">
+<xs:sequence>
+<xs:element name="facturas" type="tns:factura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="factura">
+<xs:sequence>
+<xs:element name="ambiente" type="xs:int"/>
+<xs:element name="ci_ruc" type="xs:string" minOccurs="0"/>
+<xs:element name="detalle_adicional" type="xs:string" minOccurs="0"/>
+<xs:element name="detalle_adicional_etiqueta" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="establecimiento" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="guia_remision" type="xs:string" minOccurs="0"/>
+<xs:element name="list_detalle" type="tns:detalleFactura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="numero_factura" type="xs:string" minOccurs="0"/>
+<xs:element name="proveedor" type="xs:string" minOccurs="0"/>
+<xs:element name="punto_emision" type="xs:string" minOccurs="0"/>
+<xs:element name="razon_social" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleFactura">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="codigo_bien_servicio" type="xs:string" minOccurs="0"/>
+<xs:element name="codigo_impuesto" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre_bien_servicio" type="xs:string" minOccurs="0"/>
+<xs:element name="precio_unitario" type="xs:float"/>
+<xs:element name="valor_ice" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendFacturaLoteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respuestaComprobantes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaComprobantes">
+<xs:sequence>
+<xs:element name="respuestas" type="tns:respuestaComprobante" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaComprobante">
+<xs:sequence>
+<xs:element name="comprobantes" type="tns:comprobante" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="estado" type="xs:int"/>
+<xs:element name="estadoInfo" type="xs:string" minOccurs="0"/>
+<xs:element name="msg" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobante">
+<xs:sequence>
+<xs:element name="claveAcceso" type="xs:string" minOccurs="0"/>
+<xs:element name="comprobante" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaAutorizacion" type="xs:anySimpleType" minOccurs="0"/>
+<xs:element name="mensajes" type="tns:mensaje" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="numeroAutorizacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mensaje">
+<xs:sequence>
+<xs:element name="identificador" type="xs:string" minOccurs="0"/>
+<xs:element name="informacionAdicional" type="xs:string" minOccurs="0"/>
+<xs:element name="mensaje" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
